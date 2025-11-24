@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
     // PERBAIKAN NAMA FIELD: Menggunakan 'fullName' untuk konsistensi dengan controller/frontend.
-    fullName: { 
+        name: { 
         type: String, 
         required: true, 
         trim: true // Menghapus spasi putih di awal/akhir
