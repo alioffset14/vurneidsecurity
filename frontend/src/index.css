@@ -1,0 +1,242 @@
+/* src/index.css (GANTI file lama dengan ini) */
+
+/* ========== Base / dari file asli user ========== */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* link & button dari file asli */
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  /* ubah agar layout tidak center (dashboard full-width) */
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--bg-color, #f5f5f5);
+  color: var(--text-on-bg, #111827);
+  font-family: var(--font-family, system-ui, Avenir, Helvetica, Arial, sans-serif);
+}
+
+/* Heading & button dasar */
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* ========== Variabel warna untuk navbar + theme ========== */
+:root {
+  --nav-height: 64px;
+  --nav-bg-dark: #263547;     /* navbar dark */
+  --nav-text-dark: #ffffff;
+  --nav-bg-light: #ffffff;    /* navbar light */
+  --nav-text-light: #213547;
+
+  --bg-color-dark: #121212;
+  --text-on-bg-dark: rgba(255,255,255,0.87);
+  --bg-color-light: #f5f5f5;
+  --text-on-bg-light: #111827;
+}
+
+/* Theme default (dark preference) */
+:root {
+  --nav-bg: var(--nav-bg-dark);
+  --nav-text: var(--nav-text-dark);
+  --bg-color: var(--bg-color-dark);
+  --text-on-bg: var(--text-on-bg-dark);
+}
+
+/* Light mode overrides */
+@media (prefers-color-scheme: light) {
+  :root {
+    --nav-bg: var(--nav-bg-light);
+    --nav-text: var(--nav-text-light);
+    --bg-color: var(--bg-color-light);
+    --text-on-bg: var(--text-on-bg-light);
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* apply root colors to body (so we keep compat dengan file awal) */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-on-bg);
+}
+
+/* ========== NAVBAR styles (tambah) ========== */
+.navbar {
+  height: var(--nav-height);
+  background: var(--nav-bg);
+  color: var(--nav-text);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+/* kiri: brand + links */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* brand */
+.brand-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--nav-text);
+}
+.brand-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* nav links, dekat dengan brand */
+.nav-links {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.nav-link {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  font-size: 14px;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+.nav-link:hover {
+  background: rgba(255,255,255,0.04);
+}
+
+/* kanan: user area */
+.nav-right {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* user info */
+.user-info {
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: background .12s;
+}
+.user-info:hover {
+  background: rgba(255,255,255,0.03);
+}
+.user-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--nav-text);
+}
+.caret {
+  font-size: 12px;
+  opacity: 0.85;
+  color: var(--nav-text);
+}
+
+/* dropdown menu */
+.user-menu {
+  position: absolute;
+  right: 0;
+  top: calc(var(--nav-height) + 6px);
+  background: white;
+  color: #111827;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  min-width: 160px;
+  overflow: hidden;
+  z-index: 60;
+}
+.user-menu-item {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  text-align: left;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+.user-menu-item:hover {
+  background: #f3f4f6;
+}
+
+/* ========== Main content spacing ========== */
+.main-content {
+  padding: 28px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ========== Responsive tweaks (small screens) ========== */
+@media (max-width: 720px) {
+  .nav-links {
+    display: none; /* hide desktop links on small screens - you can add hamburger later */
+  }
+  .brand-title {
+    font-size: 15px;
+  }
+  .user-name { display: none; } /* show caret only on small */
+  .navbar {
+    padding: 0 12px;
+  }
+}
+

@@ -1,0 +1,68 @@
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 16px;
+}
+
+.targets-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+  font-size: 14px;
+}
+
+.targets-table th,
+.targets-table td {
+  border: 1px solid #ddd;
+  padding: 10px 12px;
+  text-align: center; /* ⬅ semua tulisan rata tengah */
+  vertical-align: middle;
+}
+
+.targets-table thead th {
+  background: #eaeaea; /* ⬅ blok abu-abu */
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.targets-table tbody tr:nth-child(even) {
+  background: #f9f9f9; /* baris genap abu muda */
+}
+
+.targets-table tbody tr:hover {
+  background: #f1f1f1; /* hover highlight */
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center; /* ⬅ tombol di tengah */
+  gap: 6px;
+}
+
+.btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background: #ffc107;
+  color: #222;
+}
+
+.btn-danger {
+  background: #d32f2f;
+  color: #fff;
+}
+
+.btn-primary {
+  background: #1976d2;
+  color: #fff;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}

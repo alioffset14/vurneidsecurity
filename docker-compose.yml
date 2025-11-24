@@ -1,0 +1,112 @@
+version: '3.8'
+
+services:
+  # Layanan Backend (Node.js/Express, etc.)
+  backend:
+    build: 
+      context: ./backend
+    container_name: backend
+    restart: unless-stopped
+    # Menggunakan file .env untuk kredensial (seperti MONGODB_URI), 
+    # yang harus ada di .gitignore.
+    env_file:
+      - .env
+    environment:
+      # Variabel lingkungan non-rahasia
+      - NODE_ENV=development
+      - PORT=3001
+    ports:
+      - "3001:3001"
+    networks:
+      - vurne_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    # Tambahkan volume jika Anda ingin hot-reloading di development
+    # volumes:
+    #   - ./backend:/app 
+    #   - /app/node_modules
+
+  # Layanan Frontend (React, Vue, dll., biasanya menggunakan Vite)
+  frontend:
+    build: 
+      context: ./frontend
+    container_name: frontend
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=development
+      # Ini akan digunakan oleh frontend untuk berkomunikasi dengan Nginx/Backend
+      - VITE_API_URL=/api 
+    depends_on:
+      # Hanya untuk memastikan backend berjalan sebelum frontend
+      - backend 
+    networks:
+      - vurne_network
+    ports:
+      - "5173:5173"
+    # Tambahkan volume untuk hot-reloading
+    # volumes:
+    #   - ./frontend:/app 
+    #   - /app/node_modules
+
+  # Layanan Aplikasi Go (di luar stack utama, mungkin untuk fungsi spesifik)
+  goapp:
+    build: 
+      context: ./go-app
+    container_name: goapp
+    restart: unless-stopped
+    networks:
+      - vurne_network
+    ports:
+      - "8080:8080"
+    # Tambahkan volume jika goapp butuh hot-reload
+    # volumes:
+    #   - ./go-app:/app
+
+  # Nginx Reverse Proxy (Mengatur routing port 80 ke frontend/backend)
+  nginxd:
+    image: nginx:stable-alpine
+    container_name: nginxd
+    restart: unless-stopped
+    depends_on:
+      - frontend
+      - backend
+      - goapp
+    # Mount konfigurasi Nginx dari host
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - vurne_network
+    ports:
+      - "80:80"
+
+  # Tool Keamanan (Dalfox XSS Scanner) - Hanya untuk Development/Testing
+  dalfox:
+    image: hahwul/dalfox
+    container_name: dalfox
+    restart: "no" # Ubah dari unless-stopped, karena ini tool yang dijalankan manual
+    stdin_open: true
+    tty: true
+    command: tail -f /dev/null
+    networks:
+      - vurne_network
+
+  # Environment Go Lang - Hanya untuk Development
+  golang:
+    image: golang:1.21
+    container_name: golang
+    restart: "no" # Ubah dari unless-stopped, karena ini tool yang dijalankan manual
+    stdin_open: true
+    tty: true
+    command: tail -f /dev/null
+    working_dir: /app
+    volumes:
+      - ./go-app:/app
+    networks:
+      - vurne_network
+
+networks:
+  vurne_network:
+    driver: bridge

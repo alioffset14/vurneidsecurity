@@ -1,0 +1,80 @@
+.level-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.level-btn {
+  flex: 1;
+  background: #1976d2;   /* biru */
+  color: #fff;           /* putih */
+  border: none;
+  border-radius: 6px;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  transition: background 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.level-btn small {
+  font-weight: normal;
+  font-size: 12px;
+  opacity: 0.9;
+  margin-top: 4px;
+}
+
+.scan-types-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.scan-types-table th {
+  background: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+}
+
+.scan-types-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.scan-types-table tr:hover {
+  background: #f9f9f9;
+}
+
+.selected-row {
+  background: #e3f2fd;
+}
+
+.status {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.status.selected {
+  background: #1976d2;
+  color: white;
+}
+
+.status.recommended {
+  background: #43a047;
+  color: white;
+}
+
+.level-btn:hover {
+  background: #125a9c; /* biru gelap saat hover */
+}
+
+.level-btn.active {
+  background: #0d47a1; /* biru lebih pekat kalau dipilih */
+}

@@ -1,0 +1,304 @@
+/* Profile Page Container */
+.profile-page {
+    padding-bottom: 3rem;
+    padding-top: 1rem;
+}
+
+/* Profile Header (Cover Area) */
+.profile-top {
+    overflow: hidden;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.cover {
+    height: 200px; /* Tinggi cover */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+}
+
+.cover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2));
+}
+
+.cover-inner {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+/* Avatar Block */
+.avatar-block {
+    position: relative;
+    margin-top: -80px; /* Geser ke atas, menumpang di cover */
+}
+
+.avatar-frame {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 6px solid white;
+    background-color: #ecf0f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: #34495e;
+}
+
+.avatar-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Meta Block (Nama & Role) */
+.meta-block {
+    margin-left: 1rem;
+    flex-grow: 1;
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    padding-bottom: 0.5rem;
+}
+
+.meta-block .name {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+.meta-block .role {
+    font-size: 1rem;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+/* Top Actions (Edit Button) */
+.top-actions {
+    padding-bottom: 0.5rem;
+}
+
+/* Profile Grid (Main Content + Aside) */
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 1.5rem;
+}
+
+.main-card .card-body {
+    padding: 1.5rem;
+}
+
+/* Main Section Content */
+.section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1.5rem;
+}
+
+.section-head h2 {
+    margin: 0;
+}
+
+.muted {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+.lead {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* Details Grid (Email, Location, Joined) */
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    border-top: 1px solid #eee;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.details-grid dt {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+}
+
+.details-grid dd {
+    margin-left: 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Activity List */
+.activity {
+    list-style: none;
+    padding: 0;
+}
+
+.activity li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+    font-size: 0.95rem;
+}
+
+.activity li:last-child {
+    border-bottom: none;
+}
+
+.muted-small {
+    font-size: 0.85rem;
+    color: #95a5a6;
+}
+
+/* Edit Form Styles */
+.edit-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.edit-form label {
+    width: 100%;
+}
+
+.edit-form .label {
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    display: block;
+}
+
+.edit-form .label-block {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.edit-form input,
+.edit-form textarea {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.edit-form textarea {
+    resize: vertical;
+}
+
+.form-actions {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 0.75rem;
+}
+
+/* Aside Stats */
+.aside-body {
+    padding: 1.5rem;
+}
+
+.stats-head, .actions-head {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.actions-block .stack {
+    display: flex;
+    flex-direction: column; /* Menumpuk tombol secara vertikal */
+    align-items: center;    /* Meratakan tombol ke tengah (horizontal) */
+    gap: 12px;              /* Memberi jarak 10px antar tombol */
+    margin: 0;              /* Hapus margin default jika ada */
+    padding: 0;
+}
+
+.stat-item .value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #3498db;
+    line-height: 1;
+}
+
+.stat-item .label {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+}
+
+.action-btn {
+   display: block;
+    /* --- EDIT BARIS DI BAWAH INI --- */
+    width: 250px;       /* Tetapkan lebar seragam, misalnya 250px */
+    margin-bottom: 0;   /* Hapus margin-bottom karena sudah menggunakan gap */
+    /* -------------------------------- */
+    background: #7d888f; /* Ganti warna biru sesuai yang terlihat di gambar */
+    color: white;       /* Ganti warna teks menjadi putih agar kontras */
+    padding: 10px 15px; /* Tambahkan padding agar tombol lebih besar */
+    border: none;       /* Hapus border */
+    border-radius: 6px; /* Tambahkan sudut membulat */
+    cursor: pointer;
+    text-align: center; /* Pastikan teks di dalam tombol rata tengah */
+    transition: background-color 0.3s;
+}
+
+.action-btn:hover {
+    /* Perbarui hover state */
+    background: #2980b9; 
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .profile-grid {
+        grid-template-columns: 1fr; /* Stack main content and sidebar */
+    }
+    
+    .cover-inner {
+        padding: 1rem 1rem;
+    }
+
+    .edit-form .form-row {
+        grid-template-columns: 1fr; /* Stack form inputs vertically */
+    }
+}
+
+@media (max-width: 576px) {
+    .avatar-frame {
+        width: 90px;
+        height: 90px;
+    }
+    .avatar-block {
+        margin-top: -60px;
+    }
+    .meta-block .name {
+        font-size: 1.5rem;
+    }
+}

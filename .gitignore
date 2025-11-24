@@ -1,0 +1,43 @@
+# =========================================================
+# FILE INI HARUS ADA DI ROOT PROYEK DAN DI-COMMIT KE GITHUB
+# =========================================================
+
+# 1. KRITIKAL: ENVIRONMENT VARIABLES & SECRETS 
+# Melindungi MONGODB_URI dan JWT_SECRET Anda agar tidak terunggah.
+.env
+
+# 2. DEPENDENCIES
+# Dependencies Node.js yang besar (selalu diabaikan)
+node_modules
+/backend/node_modules
+/frontend/node_modules
+
+# 3. BUILD OUTPUT & CACHE
+# Folder output dari proses build frontend (Vite/React/Vue)
+/frontend/dist
+/frontend/build
+
+# Folder output/temporary backend (jika ada)
+/backend/build
+/backend/temp
+/backend/output
+/backend/scans
+
+# 4. UPLOADS (User-Generated Content)
+# Konten yang diunggah pengguna tidak boleh masuk ke Git
+/backend/uploads
+
+# 5. ENVIRONMENT SPECIFIC
+# Log, file temporer, atau cache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+*.log
+*.tmp
+
+# 6. DOCKER/IDE
+# File cache atau konfigurasi Visual Studio Code
+.vscode/
+# File volume Docker (jika digunakan)
+.docker_volumes

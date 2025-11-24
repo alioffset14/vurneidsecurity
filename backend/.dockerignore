@@ -1,0 +1,82 @@
+Node.js deps & logs
+
+node_modules
+npm-debug.log
+yarn-error.log
+pnpm-debug.log
+
+Env files
+
+.env
+.env.local
+.env.*.local
+
+Test / coverage
+
+.nyc_output
+coverage
+
+Build / export artifacts
+
+dist
+build
+exports/
+temp/
+
+Folder dinamis yang dihasilkan oleh aplikasi saat runtime (harus dikecualikan)
+
+output/
+scans/
+
+=========================================================
+
+PERBAIKAN KRITIS: Uploads dan File Statis
+
+Pengecualian Positif: Kecualikan file yang diunggah, tapi
+
+paksa (force include) folder dan file default yang dibutuhkan.
+
+=========================================================
+
+Kecualikan SEMUA konten di dalam folder uploads/
+
+uploads/*
+
+PAKSA sertakan (force include) folder 'avatars'
+
+!uploads/avatars/
+
+PAKSA sertakan (force include) file 'default.png' yang dibutuhkan
+
+!uploads/avatars/default.png
+
+Logs
+
+*.log
+logs/
+
+Git
+
+.git
+.gitignore
+.gitattributes
+
+Docker
+
+Dockerfile*
+docker-compose*.yml
+
+Kecualikan file yang dihasilkan oleh Docker Compose saat runtime
+
+.dockerignore
+
+System files
+
+.DS_Store
+Thumbs.db
+
+IDE/editor
+
+.vscode
+.idea
+*.swp

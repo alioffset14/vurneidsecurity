@@ -1,0 +1,133 @@
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 12px;
+}
+
+/* Info Table */
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+  font-size: 14px;
+}
+
+.info-table th,
+.info-table td {
+  border: 1px solid #ddd;
+  padding: 8px 10px;
+  text-align: left;
+}
+
+.info-table thead th {
+  background: #f3f3f3;
+  font-weight: bold;
+}
+
+/* Container untuk table biar bisa scroll horizontal */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 10px;
+}
+
+/* Target Table */
+.targets-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+  font-size: 14px;
+}
+
+.targets-table th,
+.targets-table td {
+  border: 1px solid #ddd;
+  padding: 8px 10px;
+  text-align: left;
+}
+
+.targets-table thead th {
+  background: #f3f3f3;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.targets-table tbody tr:hover {
+  background: #f9f9f9;
+  cursor: pointer;
+}
+
+/* Link di tabel */
+.targets-table a {
+  color: #1976d2;
+  text-decoration: none;
+}
+
+.targets-table a:hover {
+  text-decoration: underline;
+}
+
+/* Nested Table (Parameters) */
+.nested-table {
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 4px 0;
+}
+
+.nested-table td {
+  border: 1px solid #eee;
+  padding: 4px 6px;
+}
+
+/* Vulnerabilities Table */
+.vulnerabilities-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1000px;
+  font-size: 13px;
+}
+
+.vulnerabilities-table th,
+.vulnerabilities-table td {
+  border: 1px solid #ddd;
+  padding: 8px 10px;
+  vertical-align: top;
+}
+
+.vulnerabilities-table thead th {
+  background: #f7f7f7;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+/* Badges */
+.severity-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 12px;
+  color: #fff;
+}
+
+.severity-critical { background:#d32f2f; }
+.severity-high     { background:#f57c00; }
+.severity-medium   { background:#fbc02d; color:#222; }
+.severity-low      { background:#388e3c; }
+.severity-unknown  { background:#999; }
+
+/* Hover effect */
+.vulnerabilities-table tbody tr:hover { 
+  background:#fafafa; 
+}
+
+/* Responsive small screens */
+@media (max-width: 720px) {
+  .info-table, 
+  .vulnerabilities-table { 
+    font-size: 12px; 
+    min-width: 700px; 
+  }
+}

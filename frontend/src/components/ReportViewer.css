@@ -1,0 +1,88 @@
+/* Responsive Table Wrapper */
+.table-container {
+  width: 100%;
+  overflow-x: auto; /* Scroll horizontal kalau kepanjangan */
+  margin-bottom: 20px;
+}
+
+/* Summary Table */
+.summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 400px; /* biar tidak terlalu sempit */
+  font-size: 14px;
+}
+
+.summary-table th,
+.summary-table td {
+  border: 1px solid #ccc;
+  padding: 8px 10px;
+  text-align: center;
+}
+
+.summary-table th {
+  background: #f5f5f5;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Vulnerabilities Table */
+.vulnerabilities-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px; /* biar tidak numpuk kalau banyak kolom */
+  font-size: 13px;
+}
+
+.vulnerabilities-table th,
+.vulnerabilities-table td {
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  text-align: left;
+  white-space: nowrap; /* biar kolom tidak turun ke bawah */
+}
+
+.vulnerabilities-table th {
+  background: #eaeaea;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+/* Row hover effect */
+.vulnerabilities-table tbody tr:hover {
+  background: #f9f9f9;
+}
+
+/* Severity Badges */
+.severity-critical,
+.severity-high,
+.severity-medium,
+.severity-low {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.severity-critical {
+  background: #d32f2f;
+  color: #fff;
+}
+
+.severity-high {
+  background: #f57c00;
+  color: #fff;
+}
+
+.severity-medium {
+  background: #fbc02d;
+  color: #333; /* biar lebih kontras */
+}
+
+.severity-low {
+  background: #388e3c;
+  color: #fff;
+}
